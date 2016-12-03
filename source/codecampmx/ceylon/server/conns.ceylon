@@ -14,7 +14,17 @@ import guru.nidi.graphviz.model {
 import guru.nidi.graphviz.engine {
     Graphviz
 }
-import java.io { File }
+import java.io { JFile=File }
+import ceylon.http.common {
+    contentType
+}
+import ceylon.file {
+    File,
+    parsePath
+}
+import ceylon.io {
+    newOpenFile
+}
 
 void conns(Request req, Response resp) {
     if (exists uno = req.pathParameter("uno"),
@@ -29,13 +39,18 @@ void conns(Request req, Response resp) {
             }
             for (u in usuarios) {
                 for (f in u.followers) {
-                    if (f in usuarios) {
+                    if (f!= u && f in usuarios) {
                         print("``f`` sigue a ``u``");
-                        g.node(f.username).link(g.node(u.username));
+                        g.node(Factory.node(f.username).link(Factory.node(u.username)));
                     }
                 }
             }
-            Graphviz.fromGraph(g).renderToFile(File("/tmp/caca.png"));
+            value output = JFile("/tmp/caca.png");
+            output.delete();
+            Graphviz.fromGraph(g).renderToFile(output);
+            resp.addHeader(contentType("image/png"));
+            value file = newOpenFile(parsePath(output.absolutePath).resource);
+            resp.transferFile(file);
         } else {
             error(resp, "Al menos uno de los usuarios no existe.");
         }
