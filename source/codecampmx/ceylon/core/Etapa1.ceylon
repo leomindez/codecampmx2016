@@ -18,6 +18,13 @@ shared void fetchFollowers(Usuario user) {
     user.followers.add(juan);
     user.followers.add(Usuario(101, "pedro", "Pedro", ""));
     user.following.add(juan);
+
+    value jose = Usuario(201, "jose", "Jose","");
+    user.followers.add(jose);
+    user.followers.add(Usuario(202, "pepito", "pepito", ""));
+    user.following.add(jose);
+
+
     if (user.id.even) {
         value x = Usuario(102, "pablo", "x", "");
         user.followers.add(x);
