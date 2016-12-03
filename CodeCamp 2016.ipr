@@ -27,7 +27,9 @@
     </option>
   </component>
   <component name="InspectionProjectProfileManager">
-    <option name="PROJECT_PROFILE" />
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+    </profile>
     <version value="1.0" />
   </component>
   <component name="ProjectModuleManager">
@@ -50,6 +52,24 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="Ceylon: ceylon.collection/1.3.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ceylon/cache/ceylon/collection/1.3.1/ceylon.collection-1.3.1.car!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Ceylon: ceylon.language/1.3.1">
+      <CLASSES>
+        <root url="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.1/ceylon.language-1.3.1.car!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.1/ceylon.language-1.3.1.src!/" />
+      </SOURCES>
+    </library>
   </component>
   <component name="masterDetails">
     <states>
