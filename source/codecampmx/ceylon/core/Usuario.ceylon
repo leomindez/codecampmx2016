@@ -19,4 +19,12 @@ shared class Usuario(id, username, nombre, imagen) {
 
     shared Boolean follows(Usuario other) => other in following;
     shared Boolean followedBy(Usuario other) => other in followers;
+
+    "Compara dos usuarios únicamente por ID."
+    shared actual Boolean equals(Object other) {
+        if (is Usuario other) {
+            return other.id == id;
+        }
+        return false;
+    }
 }
