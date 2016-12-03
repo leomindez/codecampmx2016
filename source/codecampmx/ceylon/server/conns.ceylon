@@ -40,8 +40,13 @@ void conns(Request req, Response resp) {
             for (u in usuarios) {
                 for (f in u.followers) {
                     if (f!= u && f in usuarios) {
-                        print("``f`` sigue a ``u``");
-                        g.node(Factory.node(f.username).link(Factory.node(u.username)));
+                        value n1 = Factory.node(f.username);
+                        if (f.follows(u)) {
+                            print("``f`` sigue a ``u``");
+                            g.node(n1.link(Factory.node(u.username)));
+                        } else {
+                            g.node(n1);
+                        }
                     }
                 }
             }
