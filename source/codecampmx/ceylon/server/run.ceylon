@@ -4,7 +4,7 @@ import java.lang {
 import ceylon.http.server {
     newServer,
     Endpoint,
-    equals,
+    template,
     Options
 }
 import ceylon.io {
@@ -15,15 +15,15 @@ shared void run() {
     assert(is Integer port = Integer.parse(System.getProperty("server.port", "8080")));
     value server = newServer {
         Endpoint {
-            path = equals("/followers/{uno}/{dos}");
+            path = template("/followers/{uno}/{dos}");
             followers;
         },
         Endpoint {
-            path = equals("/friends/{uno}/{dos}");
+            path = template("/friends/{uno}/{dos}");
             friends;
         },
         Endpoint {
-            path = equals("/conexiones/{uno}/{dos}");
+            path = template("/conexiones/{uno}/{dos}");
             conns;
         }
     };
