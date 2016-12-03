@@ -6,7 +6,7 @@ shared Set<Usuario> commonFollowers(Usuario uno, Usuario dos) {
     common.each((u){
         u.following.add(uno);
         u.following.add(dos);
-    })
+    });
     return common;
 }
 
