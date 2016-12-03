@@ -18,3 +18,6 @@ void writeJson(Response resp, JsonObject|JsonArray data) {
     resp.writeString(content);
     resp.flush();
 }
+
+void error(Response resp, String message) =>
+    writeJson(resp, JsonObject{ "error"->message });
