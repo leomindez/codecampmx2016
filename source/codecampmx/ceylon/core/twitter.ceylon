@@ -14,6 +14,9 @@ shared object twitter {
     print("Listo...");
 
     shared Usuario? findUser(String username) {
+        if (username.empty) {
+            return null;
+        }
         return Usuario(system.milliseconds, username, "Iventado", "");
         /*if (exists u = client.users().showUser(username)) {
             return Usuario(u.id, username, u.name, u.miniProfileImageURL);
