@@ -19,7 +19,7 @@
   <component name="GradleLocalSettings">
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/../../../newvision/grails/newvision-utils" value="1444324224000" />
+        <entry key="$USER_HOME$/newvision/grails/newvision-utils" value="1444324224000" />
       </map>
     </option>
     <option name="externalProjectsViewState">
@@ -37,7 +37,7 @@
       <module fileurl="file://$PROJECT_DIR$/CodeCamp 2016.iml" filepath="$PROJECT_DIR$/CodeCamp 2016.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="Java 8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="PropertiesComponent">
@@ -59,7 +59,9 @@
         <root url="jar://$USER_HOME$/.ceylon/cache/ceylon/collection/1.3.1/ceylon.collection-1.3.1.car!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ceylon/cache/ceylon/collection/1.3.1/ceylon.collection-1.3.1.src!/" />
+      </SOURCES>
     </library>
     <library name="Ceylon: ceylon.language/1.3.1">
       <CLASSES>
