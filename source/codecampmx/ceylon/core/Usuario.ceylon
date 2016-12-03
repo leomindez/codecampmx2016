@@ -27,4 +27,7 @@ shared class Usuario(id, username, nombre, imagen) {
         }
         return false;
     }
+
+    string = "@``username`` (ID ``id``)";
+    hash = id;
 }
