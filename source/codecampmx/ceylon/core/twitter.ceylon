@@ -7,15 +7,17 @@ import twitter4j {
 }
 
 shared object twitter {
+    print("Conectando a twitter...");
     value config=ConfigurationBuilder()
-        .setUser("codecamp_ceylon").setPassword("code.camp.ceylon")
         .build();
     value client=TwitterFactory(config).instance;
+    print("Listo...");
 
     shared Usuario? findUser(String username) {
-        if (exists u = client.users().showUser(username)) {
+        return Usuario(system.milliseconds, username, "Iventado", "");
+        /*if (exists u = client.users().showUser(username)) {
             return Usuario(u.id, username, u.name, u.miniProfileImageURL);
         }
-        return null;
+        return null;*/
     }
 }
