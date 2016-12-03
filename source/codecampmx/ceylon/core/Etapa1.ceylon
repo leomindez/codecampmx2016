@@ -1,3 +1,5 @@
+import twitter4j { Twitter, TwitterImpl }
+
 "Obtiene los seguidores comunes de dos usuarios de twitter"
 shared Set<Usuario> commonFollowers(Usuario uno, Usuario dos) {
     fetchFollowers(uno);
@@ -30,4 +32,8 @@ shared void fetchFollowers(Usuario user) {
     }
 }
 
+Twitter twitter = TwitterImpl();
 
+shared Usuario? findUser(String username) {
+    return null;
+}
