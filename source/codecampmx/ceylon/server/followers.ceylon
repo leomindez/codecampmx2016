@@ -10,14 +10,19 @@ import ceylon.json {
 void followers(Request req, Response resp) {
     if (exists uno = req.pathParameter("uno"),
         exists dos = req.pathParameter("dos")) {
+        print("Buscando a ``uno`` y ``dos``");
         if (exists u1 = twitter.findUser(uno),
             exists u2 = twitter.findUser(dos)) {
             value arr = JsonArray {
                 for (u in commonFollowers(u1, u2))
                     userToJson(u)
             };
-            writeJson(resp, arr);
+            writeJson(resp, Json{"result"->arr});
+        } else {
+            error(resp, "Al menos uno de los usuarios no existe.");
         }
+    } else {
+        error(resp, "Debes indicar dos usuarios de twitter.");
     }
 }
 
