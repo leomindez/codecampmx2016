@@ -10,6 +10,7 @@ import ceylon.http.server {
 import ceylon.io {
     SocketAddress
 }
+
 shared void run() {
     "You must specify a port through the server.port system property"
     assert(is Integer port = Integer.parse(System.getProperty("server.port", "8080")));
@@ -18,7 +19,7 @@ shared void run() {
             path = template("/followers/{uno}/{dos}");
             followers;
         },
-        Endpoint {
+        Endpoint{
             path = template("/friends/{uno}/{dos}");
             friends;
         },
@@ -27,5 +28,6 @@ shared void run() {
             conns;
         }
     };
-    server.start(SocketAddress("localhost", port),
-        Options { sessionId = "codecampmx-ceylon"; });}
+    server.startInBackground(SocketAddress("localhost", port),
+        Options { sessionId = "codecampmx-ceylon"; });
+}
