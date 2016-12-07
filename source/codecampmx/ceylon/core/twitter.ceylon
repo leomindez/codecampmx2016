@@ -5,7 +5,8 @@ import twitter4j.conf {
 }
 import twitter4j {
     TwitterFactory,
-    Twitter
+    Twitter,
+    CursorSupport
 }
 import java.util.concurrent.atomic {
     AtomicLong
@@ -19,6 +20,7 @@ import ceylon.collection {
 
 shared object twitter {
     print("Conectando a twitter...");
+    value followerLimit = 150;
     value config=ConfigurationBuilder()
         .build();
     value client=TwitterFactory(config).instance;
@@ -40,7 +42,7 @@ shared object twitter {
 
    shared HashSet<Usuario> getFollowers(String screename) {
         value followers = HashSet<Usuario>();
-        twitterClient().instance.getFollowersList(screename, -1).forEach((user) => followers.add(Usuario(user.id, user.screenName, user.name, user.miniProfileImageURL)));
+        twitterClient().instance.getFollowersList(screename, CursorSupport.start,followerLimit).forEach((user) => followers.add(Usuario(user.id, user.screenName, user.name, user.miniProfileImageURL)));
         return CompletableFuture.supplyAsync(() => followers).get();
     }
 
