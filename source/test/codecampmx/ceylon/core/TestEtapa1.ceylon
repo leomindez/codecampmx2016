@@ -1,10 +1,14 @@
 import ceylon.test { test,
-    assertTrue }
+    assertTrue,
+    assertNotNull }
 
 import codecampmx.ceylon.core {
     Usuario,
     commonFollowers,
-    fetchFollowers
+    fetchFollowers,
+    twitter,
+    getCommonFollowers
+
 }
 
 shared test void testFetchFollowers() {
@@ -23,4 +27,15 @@ shared test void testCommonFollowers() {
     assertTrue(dos.following.size > 1);
     assertTrue(common.size > 0);
     assertTrue(every { for (u in common) u.follows(uno) && u.follows(dos) });
+}
+
+shared test void testGetFollowers(){
+    value followers = twitter.getFollowers("0xtejatero");
+    assertNotNull(followers);
+    assertTrue(followers.size > 0);
+}
+
+shared test void testGetCommonFollowers(){
+    value common = getCommonFollowers("0xtejatero", "silmood");
+    assertTrue(!common.empty);
 }
