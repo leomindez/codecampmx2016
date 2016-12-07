@@ -1,3 +1,6 @@
+import ceylon.collection {
+    HashSet
+}
 
 "Obtiene los seguidores comunes de dos usuarios de twitter"
 shared Set<Usuario> commonFollowers(Usuario uno, Usuario dos) {
@@ -11,8 +14,15 @@ shared Set<Usuario> commonFollowers(Usuario uno, Usuario dos) {
     return common;
 }
 
+shared Set<Usuario> getCommonFollowers(String userOne, String userTwo) {
+    value followersUserOne = getUserFollowers(userOne);
+    value followersUserTwo = getUserFollowers(userTwo);
+    return followersUserOne & followersUserTwo;
+}
+
 "Llena la lista de seguidores de un usuario de twitter"
 shared void fetchFollowers(Usuario user) {
+
     //Por ahorita es pura mamada para probar
     value juan = Usuario(100, "juan", "Juan", "");
     user.followers.add(juan);
@@ -45,5 +55,9 @@ shared void fetchFollowers(Usuario user) {
         user.followers.add(Usuario(105, "yony", "x", ""));
         user.following.add(x);
     }
+
 }
 
+     HashSet<Usuario> getUserFollowers(String screename) {
+    return twitter.getFollowers(screename);
+}
